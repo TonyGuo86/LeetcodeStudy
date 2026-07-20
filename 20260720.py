@@ -47,6 +47,31 @@ def maxLength(nums):
         print(f'fun={inspect.stack()[0][3]},line={e.__traceback__.tb_lineno},error={e}')
 
 
+def my_gcd(a,b):
+    try:
+        max_gcd = 1
+        for i in range(1,max(a,b)+1):
+            if a % i == 0 and b % i == 0:
+                max_gcd = max(max_gcd,i)
+        print(f'my max_gcd = {max_gcd}')
+        print(f'math gcd = {math.gcd(a,b)}')
+    except Exception as e:
+        print(f'fun={inspect.stack()[0][3]},line={e.__traceback__.tb_lineno},error={e}')
+
+
+def my_lcm(a,b):
+    try:
+        start_val = a * b
+        min_lcm = start_val
+        for i in range(start_val,0,-1):
+            if i % a == 0 and i % b == 0:
+                min_lcm = min(min_lcm,i)
+        print(f'my min_lcm = {min_lcm}')
+        print(f'math lcm = {math.lcm(a,b)}')
+    except Exception as e:
+        print(f'fun={inspect.stack()[0][3]},line={e.__traceback__.tb_lineno},error={e}')
+
+
 if __name__ == '__main__':
     nums = [3,3]
     target = 6
@@ -63,3 +88,6 @@ if __name__ == '__main__':
 
     gcd = math.gcd(0,34)
     print(f'gcd = {gcd}')
+
+    my_gcd(4,12)
+    my_lcm(3,4)
